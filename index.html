@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salão Cilene Bury</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- CONTATO FIXO -->
+<div class="contato-fixo">
+    <p>📞 (11) 96823-9043</p>
+    <p>📧 cilene.buryy@gmail.com</p>
+</div>
+
+<!-- HERO -->
+<header class="hero">
+    <div class="hero-overlay">
+        <h1 class="fade">Salão Cilene Bury</h1>
+        <p class="fade">Beleza • Estilo • Autoestima</p>
+        <a href="agendar.html"><button class="fade">Agendar Horário</button></a>
+    </div>
+</header>
+
+<section class="section reveal">
+    <h2>Sobre Nós</h2>
+    <p>
+        O Salão Cilene Bury oferece procedimentos de beleza com atendimento
+        personalizado, qualidade e sofisticação em um ambiente acolhedor.
+    </p>
+</section>
+
+<section class="section destaque reveal">
+    <h2>Procedimentos</h2>
+    <div class="cards">
+        <div class="card">Corte Feminino</div>
+        <div class="card">Escova</div>
+        <div class="card">Hidratação</div>
+        <div class="card">Progressiva</div>
+        <div class="card">Coloração</div>
+        <div class="card">Mechas</div>
+        <div class="card">Manicure</div>
+        <div class="card">Pedicure</div>
+        <div class="card">Design de Sobrancelhas</div>
+        <div class="card">Henna</div>
+        <div class="card">Maquiagem</div>
+    </div>
+</section>
+
+<section class="section reveal">
+    <h2>Localização</h2>
+    <p>
+        📍 R. Santos Dumont, 370 - Jardim Jacira<br>
+        Itapecerica da Serra - SP<br>
+        CEP 06864-340
+    </p>
+</section>
+
+<footer>
+    <p>© 2025 Salão Cilene Bury</p>
+</footer>
+
+<script>
+/* EFEITO AO ROLAR */
+const elements = document.querySelectorAll('.reveal');
+window.addEventListener('scroll', () => {
+    elements.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if (top < window.innerHeight - 100) {
+            el.classList.add('active');
+        }
+    });
+});
+</script>
+
+</body>
+</html>

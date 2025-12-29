@@ -1,0 +1,198 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Arial", sans-serif;
+}
+
+body {
+    background: #fff0f5;
+    color: #333;
+}
+
+/* CONTATO FIXO */
+.contato-fixo {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    background: #c2185b;
+    color: white;
+    padding: 12px;
+    border-radius: 10px;
+    z-index: 999;
+    font-size: 14px;
+}
+
+/* HERO */
+.hero {
+    height: 100vh;
+    background: url("https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9") center/cover no-repeat;
+}
+
+.hero-overlay {
+    background: rgba(0,0,0,0.6);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 48px;
+}
+
+.hero button {
+    margin-top: 20px;
+    padding: 15px 30px;
+    background: #c2185b;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* SEÇÕES */
+.section {
+    padding: 60px 20px;
+    max-width: 1000px;
+    margin: auto;
+    text-align: center;
+}
+
+.destaque {
+    background: #ffe4ec;
+}
+
+/* CARDS */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* FORM */
+form {
+    max-width: 500px;
+    margin: auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    margin-bottom: 15px;
+}
+
+footer {
+    background: #c2185b;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+/* ANIMAÇÕES */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 1s;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fade {
+    animation: fadeIn 1.5s;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(30px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+/* =========================
+   AGENDAMENTO PREMIUM
+========================= */
+
+.agendar-bg {
+    background: url("https://images.unsplash.com/photo-1522337360788-8b13dee7a37e") center/cover no-repeat;
+    min-height: 100vh;
+}
+
+.overlay-agendar {
+    background: rgba(194, 24, 91, 0.85);
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+.agendar-header {
+    text-align: center;
+    color: white;
+    margin-bottom: 40px;
+}
+
+.agendar-header h1 {
+    font-size: 42px;
+}
+
+.agendar-header p {
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+.agendar-box {
+    max-width: 550px;
+    margin: auto;
+    background: white;
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.agendar-box h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #c2185b;
+}
+
+.agendar-box input,
+.agendar-box select,
+.agendar-box textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin-bottom: 15px;
+    font-size: 15px;
+}
+
+.agendar-box button {
+    width: 100%;
+    padding: 15px;
+    background: #c2185b;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.agendar-box button:hover {
+    background: #a3154a;
+}

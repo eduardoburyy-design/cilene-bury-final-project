@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamento | Salão Cilene Bury</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="agendar-bg">
+
+<div class="overlay-agendar">
+
+    <header class="agendar-header">
+        <h1>Salão Cilene Bury</h1>
+        <p>Agende seu horário com conforto e praticidade</p>
+        <span>📞 (11) 96823-9043 | 📧 cilene.buryy@gmail.com</span>
+    </header>
+
+    <section class="agendar-box">
+        <h2>Agendamento</h2>
+
+        <form onsubmit="enviar(); return false;">
+
+            <label>Nome</label>
+            <input type="text" id="nome" required>
+
+            <label>Procedimento</label>
+            <select id="procedimento" required>
+                <option value="">Selecione</option>
+                <option>Corte Feminino</option>
+                <option>Escova</option>
+                <option>Hidratação</option>
+                <option>Progressiva</option>
+                <option>Coloração</option>
+                <option>Mechas</option>
+                <option>Manicure</option>
+                <option>Pedicure</option>
+                <option>Design de Sobrancelhas</option>
+                <option>Sobrancelha com Henna</option>
+                <option>Maquiagem</option>
+            </select>
+
+            <label>Data</label>
+            <input type="date" id="data" required>
+
+            <label>Horário</label>
+            <input type="time" id="hora" required>
+
+            <label>Observações</label>
+            <textarea id="obs" placeholder="Ex: cabelo longo, preferência de horário..."></textarea>
+
+            <button type="submit">Confirmar Agendamento</button>
+        </form>
+    </section>
+
+</div>
+
+<script>
+function enviar() {
+    let msg = `
+Agendamento - Salão Cilene Bury
+
+Nome: ${nome.value}
+Procedimento: ${procedimento.value}
+Data: ${data.value}
+Horário: ${hora.value}
+Observações: ${obs.value}
+`;
+
+    window.open(`https://wa.me/5511968239043?text=${encodeURIComponent(msg)}`, "_blank");
+    window.open(`mailto:cilene.buryy@gmail.com?subject=Agendamento Salão Cilene Bury&body=${encodeURIComponent(msg)}`);
+}
+</script>
+
+</body>
+</html>
