@@ -1,0 +1,227 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agendamento Salão Cilene Bury</title>
+
+<style>
+body {
+background-color: #e91e63;
+font-family: Arial, sans-serif;
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh;
+margin: 0;
+}
+
+.container {
+background-color: #ffffff;
+padding: 30px;
+border-radius: 8px;
+box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+width: 100%;
+max-width: 400px;
+text-align: center;
+}
+
+.header {
+color: #e91e63;
+margin-bottom: 20px;
+font-size: 24px;
+font-weight: bold;
+}
+
+.form-group {
+text-align: left;
+margin-bottom: 15px;
+}
+
+.form-group input,
+.form-group select,
+textarea {
+width: 100%;
+padding: 10px;
+border: 1px solid #ccc;
+border-radius: 4px;
+}
+
+.btn-submit {
+background-color: #e91e63;
+color: white;
+padding: 12px 20px;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+width: 100%;
+font-size: 16px;
+font-weight: bold;
+margin-top: 10px;
+}
+
+.logout {
+background:black;
+color:white;
+padding:10px;
+border:none;
+margin-bottom:15px;
+cursor:pointer;
+width:100%;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<button class="logout" onclick="logout()">Sair</button>
+
+<div class="header">Agendamento</div>
+
+<form id="formAgendamento">
+
+<div class="form-group">
+<input type="text" id="nome" placeholder="Seu nome completo" required>
+</div>
+
+<div class="form-group">
+<input type="text" id="telefone" placeholder="(11) 99999-9999" required>
+</div>
+
+<div class="form-group">
+<select id="manicure pedicure">
+<option value="">Selecione o procedimento</option>
+<option value="Manicure">Manicure </option>
+<option value="Pedicure">Pedicure </option>
+<option value="Manicure + pedicure SIMPLES">Manicure + Pedicure SIMPLES</option>
+<option value="Manicure + pedicure com francesinha ou desenho">Manicure + pedicure com francesinha ou desenho</option>
+<option value="Spar dos pés">Spar dos pés</option>
+</select>
+</div>
+
+<div class="form-group">
+    <select id="cabelos">
+    <option value=""> Selecione o procedimento</option>
+    <option value="Corte">Corte R$45,00  </option>
+    <option value="Escova + tintura">Escova + tintura R$119,99 VARIADO</option>
+    <option value="Escova + chapinha">Escova + chapinha R$44,99 CURTO</option>
+    <option value="Escova + chapinha"> Escova + chapinha R$69,99 MEDIO</option>
+    <option value="Escova + chapinha"> Escova + chapinha R$79,99 GRANDE</option>
+    <option value="Alisamneto">Alisamento</option>
+    <option value="Progressiva">Progessiva</option>
+    <option value="Tintura">Tintura</option>
+    <option value="Hidratações">Hidratações</option>
+    <option value="Hidratação + nutrição">Hidratação + nutrição</option>
+    <option value="Cauterização">Cauterização</option>
+    <option value="Recontrução capilar">Reconstrução capilar</option>
+    <option value="Botox">Botox</option>
+    <option value="Relaxamento">Relaxamento</option>
+    <option value="Permante afro">Permante afro</option>
+    </var></var>
+    </option>
+    
+</div>
+
+<div class="form-group">
+<input type="date" id="data" required>
+</div>
+
+<div class="form-group">
+<input type="time" id="hora" required>
+</div>
+
+<div class="form-group">
+<textarea id="observacoes" placeholder="Observações"></textarea>
+</div>
+
+<button type="submit" class="btn-submit">Confirmar Agendamento</button>
+
+</form>
+</div>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-app.js";
+import { getFirestore, collection, addDoc, getDocs, query, where } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-firestore.js";
+import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-auth.js";
+
+const firebaseConfig = {
+apiKey: "AIzaSyBFxDYPxVZr02S04Cl5I9zO4CzBnXFOwR8",
+authDomain: "salao-cilene-bury-ofc.firebaseapp.com",
+projectId: "salao-cilene-bury-ofc",
+storageBucket: "salao-cilene-bury-ofc.firebasestorage.app",
+messagingSenderId: "731927606726",
+appId: "1:731927606726:web:fbb6e6245e0f23a4d16ec7"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const auth = getAuth(app);
+
+onAuthStateChanged(auth, (user) => {
+    if (!user) {
+        alert("Faça login para acessar");
+        window.location.href = "login.html";
+    }
+});
+
+window.logout = function() {
+    signOut(auth).then(() => {
+        window.location.href = "login.html";
+    });
+};
+
+document.getElementById("formAgendamento").addEventListener("submit", async function(e) {
+
+e.preventDefault();
+
+const nome = document.getElementById("nome").value;
+const telefone = document.getElementById("telefone").value;
+const procedimento = document.getElementById("procedimento").value;
+const data = document.getElementById("data").value;
+const hora = document.getElementById("hora").value;
+const observacoes = document.getElementById("observacoes").value;
+
+const q = query(
+collection(db, "agendamentos"),
+where("data","==",data),
+where("hora","==",hora)
+);
+
+const querySnapshot = await getDocs(q);
+
+if(!querySnapshot.empty){
+alert("Esse horário já está ocupado");
+return;
+}
+
+await addDoc(collection(db,"agendamentos"),{
+nome,
+telefone,
+procedimento,
+data,
+hora,
+observacoes,
+criado:new Date()
+});
+
+const mensagem = `Olá, meu nome é ${nome} e gostaria de ser atendida.
+
+📞 Telefone: ${telefone}
+💅 Procedimento: ${procedimento}
+📅 Data: ${data}
+⏰ Hora: ${hora}
+📝 Observações: ${observacoes}`;
+
+const numero = "5511968239043";
+
+window.open(`https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`, "_blank");
+
+alert("Agendamento realizado com sucesso!");
+document.getElementById("formAgendamento").reset();
+
+});
+</script>
+```

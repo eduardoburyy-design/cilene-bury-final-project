@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salão Cilene Bury</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="perfil-cliente">
+    <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Perfil">
+    
+    <div class="info-cliente">
+        <h3>Cliente</h3>
+        <p>Último agendamento: 12/03</p>
+        <p>Corte + Escova</p>
+    </div>
+</div>
+
+<!-- CONTATO FIXO -->
+<div class="contato-fixo">
+    <p>📞 (11) 96823-9043</p>
+    <p>📧 cilene.buryy@gmail.com</p>
+</div>
+
+<!-- HERO -->
+<header class="hero">
+    <div class="hero-overlay">
+        <h1 class="fade">Salão Cilene Bury</h1>
+        <p class="fade">Beleza • Estilo • Autoestima</p>
+        <a href="agendar.html"><button class="fade">Agendar Horário</button></a>
+<div class="botoes-home fade">
+    <a href="login.html"><button>Login</button></a>
+    <a href="cadastro.html"><button>Cadastro</button></a>
+</div>
+
+
+</header>
+
+<section class="section reveal">
+    <h2>Sobre Nós</h2>
+    <p>
+        O Salão Cilene Bury oferece procedimentos de beleza com atendimento
+        personalizado, qualidade e sofisticação em um ambiente acolhedor.
+    </p>
+</section>
+
+
+
+<section class="section reveal">
+    <h2>Localização</h2>
+    <p>
+        📍 R. Santos Dumont, 370 - Jardim Jacira<br>
+        Itapecerica da Serra - SP<br>
+        CEP 06864-340
+    </p>
+</section>
+
+<footer>
+    <p>© 2025 Salão Cilene Bury</p>
+</footer>
+
+<script>
+/* EFEITO AO ROLAR */
+const elements = document.querySelectorAll('.reveal');
+window.addEventListener('scroll', () => {
+    elements.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if (top < window.innerHeight - 100) {
+            el.classList.add('active');
+        }
+    });
+});
+</script><script>
+function toggleMenu() {
+    const menu = document.getElementById("menuCliente");
+    menu.style.display = menu.style.display === "block" ? "none" : "block";
+}
+
+function editarPerfil() {
+    alert("Área de edição em desenvolvimento");
+}
+
+document.getElementById("nomeCliente").innerText = localStorage.getItem("clienteNome") || "Cliente";
+</script>
+
+</body>
+</html>
